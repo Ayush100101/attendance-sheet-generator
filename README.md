@@ -1,2 +1,2 @@
 # attendance-sheet-generator
-mini project
+This Flask-based application simplifies student management by allowing users to upload Excel sheets, filter students based on subjects (e.g., "Artificial Intelligence," "Data Science"), and divide them into custom-sized batches. It automates the generation of attendance sheets with customizable headers, footers, and logos. Ideal for educational institutions, the tool enhances efficiency in organizing students and managing attendance records.
