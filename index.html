@@ -39,17 +39,41 @@
                     </optgroup>`;
             } else if (year === "se") {
                 subjectSelect.innerHTML = `
-                    <optgroup label="Major">
-                        <option value="calculus">Calculus</option>
-                        <option value="discrete mathematics">Discrete Mathematics</option>
-                        <option value="object oriented programming">Object Oriented Programming</option>
-                        <option value="data structures">Data Structures</option>
+                    <optgroup label="Programme Core Course (PCC)">
+                        <option value="Operating System">Operating System</option>
                     </optgroup>
-                    <optgroup label="Minor">
-                        <option value="microprocessor">Microprocessor</option>
-                        <option value="digital electronics">Digital Electronics</option>
-                        <option value="communication skills">Communication Skills</option>
-                        <option value="engineering mechanics">Engineering Mechanics</option>
+
+                    <optgroup label="PCC Lab">
+                        <option value="Operating System Lab">Operating System Lab</option>
+                        <option value="Data Communication and Network Lab">Data Communication and Network Lab</option>
+                    </optgroup>
+
+                    <optgroup label="MDM-II (Multidisciplinary Minor)">
+                        <option value="Computer Organization and Architecture">Computer Organization and Architecture</option>
+                    </optgroup>
+
+                    <optgroup label="OE II (Open Elective)">
+                        <option value="Management Information Systems">Management Information Systems</option>
+                        <option value="Product Lifecycle Management">Product Lifecycle Management</option>
+                        <option value="Emerging Trends in Technology">Emerging Trends in Technology</option>
+                        <option value="Cyber and Data Laws">Cyber and Data Laws</option>
+                        <option value="Design Thinking">Design Thinking</option>
+                    </optgroup>
+
+                    <optgroup label="HSSM (Humanities Social Science and Management)">
+                        <option value="Financial Management">Financial Management</option>
+                    </optgroup>
+
+                    <optgroup label="VEC (Value Education Course)">
+                        <option value="Digital Technological Solutions">Digital Technological Solutions</option>
+                    </optgroup>
+
+                    <optgroup label="CEP/FP (Common Engineering Project/Field Project)">
+                        <option value="Python based Mini Project-I">Python based Mini Project-I</option>
+                    </optgroup>
+
+                    <optgroup label="Audit Course">
+                        <option value="Constitution of India">Constitution of India</option>
                     </optgroup>`;
             }
         }
@@ -67,7 +91,7 @@
             <h2>Upload Student Data</h2>
             <form action="/upload" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="file">Select Excel File:</label>
+                    <label for="file">Upload Excel File:</label>
                     <input type="file" name="file" required>
                 </div>
 
@@ -89,31 +113,7 @@
 
                 <div class="form-group">
                     <label for="subject">Select Subject:</label>
-                    <select name="subject" id="subject" required>
-                        <optgroup label="DLO1">
-                            <option value="network programming">Network Programming</option>
-                            <option value="data science fundamentals">Data Science Fundamentals</option>
-                            <option value="artificial intelligence">Artificial Intelligence</option>
-                            <option value="web development">Web Development</option>
-                        </optgroup>
-                        <optgroup label="DLO2">
-                            <option value="cryptography">Cryptography</option>
-                            <option value="fundamentals of machine learning">Fundamentals of Machine Learning</option>
-                            <option value="data warehousing and mining">Data Warehousing and Mining</option>
-                            <option value="cg vr & ar">CG VR & AR</option>
-                        </optgroup>
-                        <optgroup label="ILO1">
-                            <option value="ai for business applications">AI for Business Applications</option>
-                            <option value="audio processing">Audio Processing</option>
-                            <option value="mechatronics">Mechatronics</option>
-                            <option value="theory of automata and formal languages">Theory of Automata and Formal Languages</option>
-                        </optgroup>
-                        <optgroup label="ILO2">
-                            <option value="project management">Project Management</option>
-                            <option value="entrepreneurship development management">Entrepreneurship Development Management</option>
-                            <option value="product lifecycle management">Product Lifecycle Management</option>
-                        </optgroup>
-                    </select>
+                    <select name="subject" id="subject" required></select>
                 </div>
 
                 <div class="form-group">
@@ -121,7 +121,7 @@
                     <input type="number" name="batch_size" required>
                 </div>
                 
-                <input type="submit" value="Generate Attendance Sheets" class="btn">
+                <input type="submit" value="Generate Attendance Sheet" class="btn">
             </form>
         </div>
     </main>
@@ -130,3 +130,5 @@
     </footer>
 </body>
 </html>
+
+
