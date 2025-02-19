@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student Subject</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            <h1>Update Student Subject</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Update Student Subject</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/update_subject" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="current_subject_file">Upload Current Subject Excel File:</label>
+                    <input type="file" id="current_subject_file" name="current_subject_file" required>
+                </div>
+                <div class="form-group">
+                    <label for="new_subject_file">Upload New Subject Excel File:</label>
+                    <input type="file" id="new_subject_file" name="new_subject_file" required>
+                </div>
+                <div class="form-group">
+                    <label for="usn">Student USN:</label>
+                    <input type="text" id="usn" name="usn" required placeholder="e.g., 1MS20IT001">
+                </div>
+                <input type="submit" value="Change Subject" class="btn">
+            </form>
+
+            {% if files_ready %}
+                <div style="margin-top: 20px;">
+                    <h3>Download Updated Files:</h3>
+                    <a href="{{ url_for('download_file', filename='updated_current_subject.xlsx') }}" class="btn secondary">Download Updated Current Subject</a>
+                    <a href="{{ url_for('download_file', filename='updated_new_subject.xlsx') }}" class="btn secondary">Download Updated New Subject</a>
+                </div>
+            {% endif %}
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="/" class="btn secondary">Return to Home</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Attendance Sheet Generator</p>
+    </footer>
+</body>
+</html>
