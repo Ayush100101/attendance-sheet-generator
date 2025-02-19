@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            <h1>Drop Student</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Drop Student</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/drop_student" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Upload Excel File:</label>
+                    <input type="file" id="file" name="file" required>
+                </div>
+                <div class="form-group">
+                    <label for="usn">Student USN:</label>
+                    <input type="text" id="usn" name="usn" required placeholder="e.g., 1MS20IT001">
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Dropping:</label>
+                    <textarea id="reason" name="reason" required placeholder="Enter the reason for dropping the student"></textarea>
+                </div>
+                <input type="submit" value="Drop Student" class="btn">
+            </form>
+
+            {% if files_ready %}
+                <div style="margin-top: 20px;">
+                    <h3>Download Updated File:</h3>
+                    <a href="{{ url_for('download_file', filename='updated_drop_student.xlsx') }}" class="btn secondary">Download Updated File</a>
+                </div>
+            {% endif %}
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="/" class="btn secondary">Return to Home</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Attendance Sheet Generator</p>
+    </footer>
+</body>
+</html>
